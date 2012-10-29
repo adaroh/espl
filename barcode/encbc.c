@@ -6,19 +6,12 @@ int main(int argc, char **argv)
 {
   int barcode[80][BC_NBITS] = {0};
   int i,j,numOfChar = 0;
-  int currChar;
-
 
   for(i = 1; i < argc; ++i)
   {
-	  for(j = 0;  ; ++j)
+	  for(j = 0; argv[i][j] ; ++j)
 	  {
-		  currChar = argv[i][j];
-		  if(currChar == '\0')
-		  {
-			  break;
-		  }
-		  bc_char2bits(currChar,barcode[numOfChar]);
+		  *bc_char2bits(argv[i][j],barcode[numOfChar]);
 		  ++numOfChar;
 		
 		  /*printf("<%d , %d > \n",i,j);
@@ -32,7 +25,7 @@ int main(int argc, char **argv)
   {
 	  for(j = 0;j < BC_NBITS ; ++j)
 	  {
-		if(barcode[i][j] == 1)
+		if(barcode[i][j])
 		  printf("#");
 		  
 		else

@@ -21,7 +21,7 @@ decbc: decbc.o bclib.o
 testbc: bclib.c
 	$(CC) $(CFLAGS) -o $@ -DTESTBC=1 $^
 
-encbc.o: encbc.c
+encbc.o: encbc.c bclib.h
 decbc.o: decbc.c bclib.h
 bclib.o: bclib.c bclib.h
 
