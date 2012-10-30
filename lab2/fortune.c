@@ -20,23 +20,10 @@ int main(int argc,char **argv)
   numOfLine = getNumOfLine(file);
   int randLine = getRandomNumber(numOfLine); 
   
-  FILE *file2 = fopen(fileName, "rf");
-  for(i = 0; i < randLine; ++i)
-  {
-    fgets(line,127,file2);
-  }
-  
-  printf("%d: %s \n",randLine,line);
+  printLine(fileName,randLine);
   fclose(file);
-  fclose(file2);
   
   return 0;
-}
-
-int getRandomNumber(int numOfLine)
-{
-  srand(time(NULL));
-  return rand() % (numOfLine + 1);
 }
 
 int getNumOfLine(FILE *file)
@@ -49,4 +36,24 @@ int getNumOfLine(FILE *file)
     ++numOfLine;     
   }
   return numOfLine;
+}
+
+int getRandomNumber(int numOfLine)
+{
+  srand(time(NULL));
+  return rand() % (numOfLine + 1);
+}
+
+void printLine(char *fileName, int randLine)
+{
+  char line[128];
+  int i;
+  FILE *file2 = fopen(fileName, "rf");
+  for(i = 0; i < randLine; ++i)
+  {
+    fgets(line,127,file2);
+  }
+  printf("%d: %s \n",randLine,line);
+  
+  fclose(file2);
 }
