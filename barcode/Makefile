@@ -12,7 +12,7 @@ test: encbc decbc testbc
 		exit 1;\
 	fi
 
-encbc: encbc.o
+encbc: encbc.o bclib.o
 	$(CC) $(CFLAGS) -o $@ $^
 
 decbc: decbc.o bclib.o

@@ -11,27 +11,28 @@ int main(int argc, char **argv)
   {
 	  for(j = 0; argv[i][j] ; ++j)
 	  {
-		  *bc_char2bits(argv[i][j],barcode[numOfChar]);
+		  bc_char2bits(argv[i][j],barcode[numOfChar]);
 		  ++numOfChar;
 		
-		  /*printf("<%d , %d > \n",i,j);
-		  printf("%c \n", argv[i][j]);
-		  */
+		  printf("<%d , %d > \n",i,j);
+		  printf("%c \n \n", argv[i][j]);
+		  
 	  }
   }
 
   /* print */
-  for(i = 0; i < numOfChar; ++i)
+  for(i = 1; i < BC_NBITS; ++i)
   {
-	  for(j = 0;j < BC_NBITS ; ++j)
+	  for(j = 0;j < numOfChar ; ++j)
 	  {
 		if(barcode[i][j])
-		  printf("#");
+		  printf("1");
 		  
 		else
-		  printf(" ");
+		  printf("0");
 
 	  }
+	  printf("\n");
   }
   return 0;
 }

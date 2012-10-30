@@ -1,8 +1,6 @@
 #include <assert.h>
 #include "bclib.h"
 
-/* TODO: implement bc_char2bits */
-
 int bc_bits2char(int *bits) {
 	int ch = 0;
 	int i;
@@ -24,7 +22,6 @@ int *bc_char2bits(int ch, int *bits)
         bits[i] = ch % 2;
         ch = ch / 2;
     }
-    
     return bits;
 }
 
