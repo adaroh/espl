@@ -4,24 +4,49 @@
 int main(int argc,char **argv)
 {
   int i, numOfLine = 0;
-//   char line[128];
-  char fileName[]="";
+  char line[128];
+  char fileName[128]="";
   for(i = 0; argv[1][i] ; ++i)
+  {
     fileName[i] = argv[1][i];
+  }
+  
   FILE *file = fopen(fileName, "rf");
   if(!file)
   {
     printf("Error: could not open file!\n");
     return -1;
   }
-  while(feof(file))
+  numOfLine = getNumOfLine(file);
+  int randLine = getRandomNumber(numOfLine); 
+  
+  FILE *file2 = fopen(fileName, "rf");
+  for(i = 0; i < randLine; ++i)
   {
-    ++numOfLine;
+    fgets(line,127,file2);
   }
   
-  printf("number of lines: %d",numOfLine);
-  
-//   fclose(file);
+  printf("%d: %s \n",randLine,line);
+  fclose(file);
+  fclose(file2);
   
   return 0;
+}
+
+int getRandomNumber(int numOfLine)
+{
+  srand(time(NULL));
+  return rand() % (numOfLine + 1);
+}
+
+int getNumOfLine(FILE *file)
+{
+  char line[128];
+  int numOfLine = 0;
+  while(!feof(file))
+  {
+    fgets(line,127,file);
+    ++numOfLine;     
+  }
+  return numOfLine;
 }
