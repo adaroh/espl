@@ -11,7 +11,7 @@ int main(int argc, char **argv)
   {
 	  for(j = 0; argv[i][j] ; ++j)
 	  {
-		  bc_char2bits(argv[i][j],barcode[numOfChar]);
+ 		  bc_char2bits(argv[i][j],barcode[numOfChar]);
 		  ++numOfChar;
 		
 		  printf("<%d , %d > \n",i,j);
@@ -19,8 +19,19 @@ int main(int argc, char **argv)
 		  
 	  }
   }
+  printf("start printing: \n");
 
-  /* print */
+  /*print*/
+  for(i = 1 ; i < numOfChar-1; ++numOfChar)
+  {
+    printf("\n");
+    for(j = 0; j < BC_NBITS ;++j)
+    {
+      printf("",barcode[i][j]);
+    }
+  }
+
+  /* print TODO 
   for(i = 1; i < BC_NBITS; ++i)
   {
 	  for(j = 0;j < numOfChar ; ++j)
@@ -33,6 +44,6 @@ int main(int argc, char **argv)
 
 	  }
 	  printf("\n");
-  }
+  }*/
   return 0;
 }
