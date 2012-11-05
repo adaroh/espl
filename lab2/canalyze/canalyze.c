@@ -2,40 +2,40 @@
 #include <stdlib.h>
 #include "fgetname.h"
 #include "namelist.h"
+#include <string.h>
 
 int main(int argc,char **argv)
 {
   int i,numOfWords = 0;
-  char fileName[128]="";
-  char name[128] = "";
+  char name[NAMELEN];
+  FILE *file;
   
   namelist name_list = make_namelist();
   
-  for(i = 0; argv[1][i] ; ++i)
+  for(i = 1; i < argc ; ++i)
   {
-    fileName[i] = argv[1][i];
+      file = fopen(argv[i], "rf");
+      if(!file)
+      {
+	printf("Error: could not open file!\n");
+	return -1;
+      }
+
+      while(fgetname(name,sizeof(name),file) != NULL)
+      {
+	  if(isKeyWords(name))
+	  {
+	    add_name(name_list,name);
+	  }
+      }
+      fclose(file);
   }
+  qsort(name_list->names ,name_list->size ,sizeof(struct namestat), myStrcmp);
   
-//   printf("file name: %s \n", fileName);
-  FILE *file = fopen(fileName, "rf");
-  if(!file)
+  for(i = 0 ; i < name_list->size ; ++i)
   {
-    printf("Error: could not open file!\n");
-    return -1;
+    printf("%s %d \n",name_list->names[i].name,name_list->names[i].count);  
   }
-  
-  while(fgetname(name,128,file) != NULL)
-  {
-//     printf("%s \n",name);//TODO
-    if(isKeyWords(name))
-    {
-     add_name(name_list,name);
-     //       printf("   it's not a keywords \n");//TODO
-    }
-//     printf("\n");//TODO
-  }
-  
-  fclose(file);
 }
 
 /*return 0 it's a keyWords
@@ -49,7 +49,7 @@ int isKeyWords(char *name)
   
  int i; 
  
- for(i =0; i < 32 ; ++i)
+ for(i =0; i < sizeof(keyWords)/sizeof(char*); ++i)
  {
     if(strcmp(keyWords[i],name) == 0){
       return 0;
@@ -57,4 +57,9 @@ int isKeyWords(char *name)
  }
  return 1;
   
+}
+
+int myStrcmp(const void* s1, const void* s2)
+{
+  return strcmp(((struct namestat*)s1)->name,((struct namestat*)s2)->name);
 }
