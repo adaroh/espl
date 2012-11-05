@@ -26,14 +26,7 @@ int main(int argc, char **argv)
     {
        for(i = 0; i < numOfChar; ++i)
        {
-	  if(barcode[i][j])
-	  {
-	    printf("#");
-	  }
-	  else
-	  {
-	    printf(" ");
-	  }
+	 printf("%c",barcode[i][j] == 0 ? ' '  : '#');
        }
        printf("\n");
     }
