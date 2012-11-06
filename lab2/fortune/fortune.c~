@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+void printLine(char *fileName, int randLine);
+
 int main(int argc,char **argv)
 {
   int i, numOfLine = 0;
