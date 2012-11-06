@@ -16,17 +16,13 @@ int main(int argc, char **argv)
   {
     switch(c)
     {
-      case 'h':
-	printf("abcdef\n");
-	break;
-      
-      case 'x':
-	printf("%d \n",getcksum(file));
-	break;
-	
-      case '?':
-       printf ("Usage: %s [-h] [-x <file>].\n", argv[0]);
-       break;
+	case 'h':
+          printf ("usage: %s [-x] [-h] <FILE>\n", argv[0]);
+          break;
+
+      	case 'x':
+	  printf("%d \n",getcksum(file));
+	  break;
     }
     
   }
