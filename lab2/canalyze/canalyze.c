@@ -4,6 +4,11 @@
 #include "namelist.h"
 #include <string.h>
 
+int myStrcmp(const void* s1, const void* s2)
+{
+  return strcmp(((struct namestat*)s1)->name,((struct namestat*)s2)->name);
+}
+
 int main(int argc,char **argv)
 {
   int i,numOfWords = 0;
@@ -59,7 +64,4 @@ int isKeyWords(char *name)
   
 }
 
-int myStrcmp(const void* s1, const void* s2)
-{
-  return strcmp(((struct namestat*)s1)->name,((struct namestat*)s2)->name);
-}
+

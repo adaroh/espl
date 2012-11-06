@@ -1,9 +1,3 @@
- world int foo() 
- {
+int foo() {
    printf("world");
-   else
-     
-     world
-     world
-       float foo
- } 
+ }
