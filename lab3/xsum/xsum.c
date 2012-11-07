@@ -16,15 +16,18 @@ int main(int argc, char **argv)
   {
     switch(c)
     {
-	case 'h':
-          printf ("usage: %s [-x] [-h] <FILE>\n", argv[0]);
-          break;
-
-      	case 'x':
-	  printf("%d \n",getcksum(file));
-	  break;
+      case 'h':
+	printf("usage: %s [-x] [-h] <FILE>\n",argv[0]);
+	break;
+      
+      case 'x':
+	printf("0x%x\n",getcksum(file));
+	break;
+  
+      case'?'://TODO need to print decimalsss
+	printf("%d\n",getcksum(file));
+	break;
     }
-    
   }
   
   fclose(file);

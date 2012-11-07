@@ -24,11 +24,10 @@ int main(int argc, char **argv)
 	printf("0x%x\n",getcksum(file));
 	break;
   
-      case'?'://TODO need to print decimal
+      case'?'://TODO need to print decimalsss
 	printf("%d\n",getcksum(file));
 	break;
     }
-    
   }
   
   fclose(file);
