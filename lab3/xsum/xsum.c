@@ -5,7 +5,7 @@ int main(int argc, char **argv)
 {
   char c;
   
-  FILE *file = fopen(argv[2] , "rt");
+  FILE *file = fopen(argv[argc-1] , "rt");
   if(!file)
   {
     perror("Error: could not open file!\n");
@@ -17,16 +17,16 @@ int main(int argc, char **argv)
     switch(c)
     {
       case 'h':
-	printf("abcdef\n");
+	printf("usage: %s [-x] [-h] <FILE>\n",argv[0]);
 	break;
       
       case 'x':
-	printf("%d \n",getcksum(file));
+	printf("0x%x\n",getcksum(file));
 	break;
-	
-      case '?':
-       printf ("Usage: %s [-h] [-x <file>].\n", argv[0]);
-       break;
+  
+      case'?'://TODO need to print decimalss
+	printf("%d\n",getcksum(file));
+	break;
     }
     
   }
@@ -36,12 +36,13 @@ int main(int argc, char **argv)
 
 int getcksum(FILE *file)
 {
-  unsigned int word;
+  unsigned int word = 0;
   unsigned int cksum = 0;
   
-  while(fread(&word, sizeof(word), 1, file)) 
+  while(fread(&word,1,sizeof(word),file)) 
   {
     cksum = cksum^word;
+    word = 0;
   }
   return cksum;
 }
