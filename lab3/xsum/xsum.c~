@@ -4,6 +4,7 @@
 int main(int argc, char **argv)
 {
   char c;
+  int checkIfX = 0;
   
   FILE *file = fopen(argv[argc-1] , "rt");
   if(!file)
@@ -21,12 +22,19 @@ int main(int argc, char **argv)
 	break;
       
       case 'x':
+	checkIfX = 1;
+	break;
+    }
+  }
+  if(c !='h')
+  {
+    if(checkIfX)
+    {
 	printf("0x%x\n",getcksum(file));
-	break;
-  
-      case'?'://TODO need to print decimalsss
+    }
+      else
+    {
 	printf("%d\n",getcksum(file));
-	break;
     }
   }
   
