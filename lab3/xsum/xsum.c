@@ -19,20 +19,21 @@ int main(int argc, char **argv)
     {
       case 'h':
 	printf("usage: %s [-x] [-h] <FILE>\n",argv[0]);
-	break;
+	return 0;
       
       case 'x':
 	checkIfX = 1;
 	break;
     }
   }
-  if(c !='h')
+  
+  if(c != 'h')
   {
     if(checkIfX)
     {
 	printf("0x%x\n",getcksum(file));
     }
-      else
+    else
     {
 	printf("%d\n",getcksum(file));
     }
