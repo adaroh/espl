@@ -15,7 +15,7 @@ int main(int argc, char **argv)
 	}
 	
 	cmp = cmpstr(argv[1], argv[2]);
-	printf("cmp: %d \n",cmp); //TODO
+	
 	switch(cmp) {
 	case 0:
 		rel = "==";

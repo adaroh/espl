@@ -13,3 +13,6 @@ scmp: scmp.o cmpstr.o
 
 scmp.o: scmp.c
 cmpstr.o: cmpstr.c
+
+clean:
+	rm -f *.o *~
