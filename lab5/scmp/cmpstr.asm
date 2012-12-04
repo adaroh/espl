@@ -1,6 +1,6 @@
 
 section .text
-	global malami
+	global cmpstr
 
 cmpstr:
 	push 	ebp ; push ebp to stack
@@ -12,6 +12,7 @@ cmpstr:
 loop:
 	cmp 	eax, ebx  ;compare char of str1 with char of str2
 	jne	.NotEqual ;if the chars not the same go to .NotEqual
+	
 	;this block will be done when eax==ebx
 	add	DWORD[ebp+8],1
 	add	DWORD[ebp+12],1  
@@ -22,21 +23,21 @@ loop:
 	jmp	loop
 
 
-;/*loop:	
+;loop:	
 ;	mov	cl,BYTE[eax]
-;;	mov	dl,BYTE[ebx]
-;	cmp	cl,0
-;	je	finish
+;	mov	dl,BYTE[ebx]
+	cmp	cl,0
+;	;je	.finish
 ;	cmp	dl,0
-;;	je	Less
+;	je	.Less
 ;	cmp 	cl,dl
-;	jg	Greater
+;;	jg	.Greater
 ;	cmp 	cl,dl
-;	jl	Less
+;	jl	.Less
 ;	inc	eax,1
 ;	inc	eax,1
 ;	jmp	loop
-;*/
+
 
 .NotEqual:
 	cmp 	eax,ebx   ;compare char of str1 with char of str2
