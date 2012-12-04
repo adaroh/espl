@@ -15,6 +15,7 @@ int main(int argc, char **argv)
 	}
 	
 	cmp = cmpstr(argv[1], argv[2]);
+
 	
 	switch(cmp) {
 	case 0:
