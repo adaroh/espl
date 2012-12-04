@@ -2,7 +2,9 @@
 #include <stdio.h>
 #include <assert.h>
 
-int cmpstr(char*,char*);
+//int cmpstr(char*,char*);
+
+extern int cmpstr(char* ,char* );
 
 int main(int argc, char **argv) 
 {
@@ -16,7 +18,6 @@ int main(int argc, char **argv)
 	
 	cmp = cmpstr(argv[1], argv[2]);
 
-	
 	switch(cmp) {
 	case 0:
 		rel = "==";

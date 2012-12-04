@@ -22,21 +22,21 @@ loop:
 	jmp	loop
 
 
-/*loop:	
-	mov	cl,BYTE[eax]
-	mov	dl,BYTE[ebx]
-	cmp	cl,0
-	je	finish
-	cmp	dl,0
-	je	Less
-	cmp 	cl,dl
-	jg	Greater
-	cmp 	cl,dl
-	jl	Less
-	inc	eax,1
-	inc	eax,1
-	jmp	loop
-*/
+;/*loop:	
+;	mov	cl,BYTE[eax]
+;;	mov	dl,BYTE[ebx]
+;	cmp	cl,0
+;	je	finish
+;	cmp	dl,0
+;;	je	Less
+;	cmp 	cl,dl
+;	jg	Greater
+;	cmp 	cl,dl
+;	jl	Less
+;	inc	eax,1
+;	inc	eax,1
+;	jmp	loop
+;*/
 
 .NotEqual:
 	cmp 	eax,ebx   ;compare char of str1 with char of str2
