@@ -5,41 +5,23 @@ section .text
 cmpstr:
 	push 	ebp ; push ebp to stack
 	mov	ebp, esp ;esp point to ebp 
-	mov	eax,DWORD [ebp+8] ;get the first char of str1
-	movzx	eax,BYTE [ebx] 
-	mov	ebx,DWORD [ebp+12] ;get the first char of str2
-	movzx	ebx,BYTE [ecx] 
 loop:
+	mov	eax,DWORD [ebp+8] ;get the first char of str1
+	movzx	eax,BYTE [eax] 
+	mov	ebx,DWORD [ebp+12] ;get the first char of str2
+	movzx	ebx,BYTE [ebx] 
+	test    eax, eax ; compare current char in str1 to zero
+	je   endloop ; end of str1
 	cmp 	eax, ebx  ;compare char of str1 with char of str2
-	jne	.NotEqual ;if the chars not the same go to .NotEqual
+	jne	 endloop ; chars differ
 	
 	;this block will be done when eax==ebx
 	add	DWORD[ebp+8],1
 	add	DWORD[ebp+12],1  
-	mov	eax,DWORD [ebp+8] ;get the next char of str1
-	movzx	eax,BYTE [ebx] 
-	mov	ebx,DWORD [ebp+12] ;get the next char of str2
-	movzx	ebx,BYTE [ecx]
 	jmp	loop
 
 
-;loop:	
-;	mov	cl,BYTE[eax]
-;	mov	dl,BYTE[ebx]
-	cmp	cl,0
-;	;je	.finish
-;	cmp	dl,0
-;	je	.Less
-;	cmp 	cl,dl
-;;	jg	.Greater
-;	cmp 	cl,dl
-;	jl	.Less
-;	inc	eax,1
-;	inc	eax,1
-;	jmp	loop
-
-
-.NotEqual:
+endloop:
 	cmp 	eax,ebx   ;compare char of str1 with char of str2
 	jl	.Less     ;jump to .Less when eax<abx
 	jg	.Greater  ;jump to .Less when eax>abx
