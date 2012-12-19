@@ -15,7 +15,6 @@ while [ 0 -ne $NCOPIES ]; do
 
     if [ -r $fileName.$tmpCopys ]
       then
-	echo "234567"
 	cp $fileName.$tmpCopys $fileName.$NCOPIES
     fi
 
