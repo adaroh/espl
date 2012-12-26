@@ -96,15 +96,15 @@ void free_args() {
 
 /* run an external program */
 void run_program() {
-  int pid, status,i,fd;
+  int pid, status,i,fd, fdnew[2];
   static char ststr[8];
 
-  /* TODO: input, output redirection */
   /* TODO: pipelines */
   /* TODO: background commands */
 
   if((pid=fork())>0) 
   {
+    pipe(fdnew[2],0);
     waitpid(pid, &status, 0);
     sprintf(ststr, "%d", status);
     setenv("?", ststr, 1);

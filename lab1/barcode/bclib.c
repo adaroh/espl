@@ -1,15 +1,16 @@
 #include <assert.h>
 #include "bclib.h"
 
-int bc_bits2char(int *bits) {
-	int ch = 0;
-	int i;
+int bc_bits2char(int *bits) 
+{
+    int ch = 0;
+    int i;
 
-	for(i = BC_NBITS;  i!=0;)
+    for(i = BC_NBITS;  i!=0;)
     {
-        --i;
-		ch = (ch<<1) | bits[i];
-	}
+    --i;
+	    ch = (ch<<1) | bits[i];
+    }
 
 	return ch;
 }
