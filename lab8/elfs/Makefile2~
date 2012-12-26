@@ -1,0 +1,22 @@
+CC=gcc
+CFLAGS=-O -g
+
+%.o: %.c
+	$(CC) $(CFLAGS) -c -o $@ $<
+
+all: secret-elf-b secret-elf-a test
+
+test: secret-elf-b secret-elf-a testbc
+	./testbc
+	if [ "`./secret-elf-b shalom olam|./secret-elf-a`" != "shalom olam" ]; then\
+		exit 1;\
+	fi
+
+secret-elf-b: secret-elf-encode secret-elf-c
+	$(CC) $(CFLAGS) -o $@ $^
+
+secret-elf-a: secret-elf-decode secret-elf-c
+	$(CC) $(CFLAGS) -o $@ $^
+
+clean:
+	rm -f *.o secret-elf-b secret-elf-a testbc
