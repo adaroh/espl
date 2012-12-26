@@ -1,0 +1,6 @@
+ 
+long fileSize=0;
+long chunkSize=0;
+
+
+long chunkNum = (fileSize +chunkSize-1)/chunkSize;
