@@ -15,9 +15,9 @@ def  RunProgram():
     stdin = sys.stdin
     stdout = sys.stdout
     
-    if (argv[-2]) == "<":
+    if (argv[-1]) == "<":
       stdin = open(argv[-1], 'r')
-    elif (argv[-2]) == ">":
+    elif (argv[-1]) == ">":
       stdout = open(argv[-1] , 'w')
     
     

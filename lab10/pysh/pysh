@@ -19,9 +19,7 @@ def  RunProgram():
       stdin = open(argv[-1], 'r')
     elif (argv[-1]) == ">":
       stdout = open(argv[-1] , 'w')
-    
-    
-    
+     
     
 while True:
     print "%s@%s>" % (getpass.getuser(), getcwd()),

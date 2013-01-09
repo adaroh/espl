@@ -26,16 +26,26 @@ def isFileEmpty(aFile):
 
 
 f = file(wordlib) 
-if isFileEmpty(f) ==0:
+if isFileEmpty(f) == 0:
+    #init 
     games = 0
-    word=random_line(f)
-    wrongGuess = 5
-    wordBeforeGuess = ""
-    i=1
-    while i < len(word):
-      wordBeforeGuess += "_ "
-      i +=1
+    word = random_line(f)
+    lim = 6
+    lengtrh = len(word)-1
+    mistakes = 0
+    finished =false
+    wordArray = ["_ "]*lengtrh
+    lettersArray = []
     
+    while mistakes < lim and not finished:
+      guess = str(raw_input("Guess a letter: "))
+      if len(guess) > 1:
+	if guess == "bye":
+	  break
+	else:
+	  print  "Uh oh: You can only guess a single letter at a time"
+      else:
+	if 
     print "%s \n %s" %(word,wordBeforeGuess)
     #while wrongGuess !=0 :
       
