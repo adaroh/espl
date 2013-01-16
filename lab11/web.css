@@ -1,0 +1,30 @@
+ 
+#name
+{
+  color: blue;
+  font-size:0.9 em;
+  text-align: left;
+}
+
+#submit
+{
+  color: blue;
+  text-align: right;
+}
+
+#pic_right
+{
+   text-align:right;
+}
+
+
+#line_middle
+{
+ color:red;
+ text-align:center;
+}
+
+#pic_middle
+{
+  text-align:center;
+}
