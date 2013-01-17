@@ -1,30 +1,16 @@
  
 #name
-{
-  color: blue;
-  font-size:0.9 em;
-  text-align: left;
-}
+h3{color: blue;   text-align: left;  text-decoration:underline; font-size:23px  }
+p{color:black;  text-align: left; }
 
 #submit
-{
-  color: blue;
-  text-align: right;
-}
+{color: blue;  text-align: right;}
 
 #pic_right
-{
-   text-align:right;
-}
+{ text-align:right;}
 
 
-#line_middle
-{
- color:red;
- text-align:center;
-}
-
-#pic_middle
-{
-  text-align:center;
-}
+#middle
+{ color:red; text-align:center; text-decoration:bold; font-size:23px}
+img:hover{visibility:hidden;}
+  
