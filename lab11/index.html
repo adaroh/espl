@@ -1,17 +1,17 @@
 <html>
   <header>
-      <link rel="stylesheet" type="text/css" href="web.css" />
-      <script type="text/javascript" src="web.js"> </script>
       <title>Adar ohana</title>
+      <link rel="stylesheet" type="text/css" href="web.css" />
+      <script type="text/javascript" src="webjs.js"> </script>
   </header>
 
   <body style="background-color:FFCC99">
 
       <div  id = "submit" >
-	<form action="http://www.cs.bgu.ac.il/~abedas/remote_service_name/php" >
-	    Usersname: <input onkeypress="isNumber()" name="username">
-	    password: <input type="text" name="lname">
-	    <input type="submit" value="Submit">
+	<form name="inputForm">
+	    Usersname: <input onkeypress="isNumber(event)" type="text" name="username">
+	    password: <input type="password" name="password">
+	    <input onclick="isvalid(event)" type="button" value="Submit">
 	</form>
       </div>
 
@@ -27,7 +27,7 @@
       <div id="middle">
 	<p><hr>
 	   Pass your mouse over the<br>
-	   picture to get amuzed!    
+	   picture to get amused!    
 	</p>
 	<img src="284191.jpg" width="350" height="200">
       </div>
